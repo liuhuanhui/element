@@ -48,7 +48,6 @@
     margin-right: 20px;
   }
 </style>
-
 ## Slider 滑块
 
 通过拖动滑块在一个固定区间内进行选择
@@ -63,6 +62,13 @@
   <div class="block">
     <span class="demonstration">默认</span>
     <el-slider v-model="value1"></el-slider>
+  </div>
+    <div class="block">
+    <span class="demonstration">自定义颜色</span>
+    <el-slider v-model="value1" :bar-styles="{background:'#f60'}">
+      <div slot="slider-bar">自定义颜色</div>
+      <div slot="slider-bar">===</div>
+    </el-slider>
   </div>
   <div class="block">
     <span class="demonstration">自定义初始值</span>

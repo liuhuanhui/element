@@ -26,23 +26,34 @@
       :style="runwayStyle"
       @click="onSliderClick"
       ref="slider">
+      
       <div
         class="el-slider__bar"
         :style="barStyle">
+
+        <div slot="slider-btn">
+        
+        </div>
+     
+
       </div>
       <slider-button
         :vertical="vertical"
         v-model="firstValue"
         :tooltip-class="tooltipClass"
         ref="button1">
+          
       </slider-button>
+
       <slider-button
         :vertical="vertical"
         v-model="secondValue"
         :tooltip-class="tooltipClass"
         ref="button2"
         v-if="range">
+          
       </slider-button>
+
       <div
         class="el-slider__stop"
         v-for="item in stops"
@@ -101,6 +112,10 @@
       showStops: {
         type: Boolean,
         default: false
+      },
+      barStyles: {
+        type: Object,
+        default: () => {}
       },
       showTooltip: {
         type: Boolean,
@@ -330,9 +345,8 @@
       runwayStyle() {
         return this.vertical ? { height: this.height } : {};
       },
-
       barStyle() {
-        return this.vertical
+        let style = this.vertical
           ? {
             height: this.barSize,
             bottom: this.barStart
@@ -340,8 +354,8 @@
             width: this.barSize,
             left: this.barStart
           };
+        return Object.assign(style, this.barStyles);
       },
-
       sliderDisabled() {
         return this.disabled || (this.elForm || {}).disabled;
       }

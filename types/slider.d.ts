@@ -59,4 +59,7 @@ export declare class ElSlider extends ElementUIComponent {
 
   /** Custom class name for the tooltip */
   tooltipClass: string
+  
+  /** Custom Style */
+  barThemeStyle: object
 }
